@@ -1,0 +1,38 @@
+.data_window {
+                
+    background:rgba(200,200,200,0.9);
+    display:inline-block;
+    vertical-align: top;
+    
+    cursor:pointer;
+    
+}
+
+.data_window_title {
+    /*TODO*/
+}
+.close_button {
+    float:right;
+    color:#EE1111;
+    width:20px;
+    font-size:20px;
+    font-weight: 800;
+}
+
+.data_canvas {
+    display: inline-flex;
+    align-content: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow:auto;
+    
+}
+
+@media (min-width: 576px) {
+    .data_window {
+        padding:5px 10px 10px 10px;
+        margin: 10px 10px 10px 10px;
+        border-radius: 5px 5px 5px 5px;
+    }
+}
