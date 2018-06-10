@@ -52,13 +52,17 @@ class Grafika {
         let minY=Math.min.apply(null,this.data.y);
         
         if(this.data.length==0){
-            alerta("Error al representar! Sin datos validos!");
-            this.triggerError();
+            this.triggerError({
+                error : Grafika.ERROR.DATA_NO_VALID,
+                text: "Error al representar! Sin datos validos!"});
             return Grafika.ERROR.DATA_NO_VALID;
         }
         if(maxX==minX || maxY==minY){
-            alerta("Error al representar! Comprueba los valores en los ejes X e Y!.");
-            this.triggerError();
+            
+            this.triggerError({
+                error: Grafika.ERROR.DATA_NO_VALID,
+                text: "Error al representar! Comprueba los valores en los ejes X e Y!.",
+            });
             return Grafika.ERROR.DATA_NO_VALID;
         }
             // EJE X
@@ -228,18 +232,18 @@ class Grafika {
             return false;
         }
 
-        if(this.withError){
-            callback();
+        if(this.withError!==false){
+            callback(this.withError);
             this.withError=false;
         }
         return true;
         
     }
-    private triggerError(){
+    private triggerError(errorData){
         if(void 0 !== this.errorCallback){
-            this.errorCallback();
+            this.errorCallback(errorData);
         }else{
-            this.withError=true;
+            this.withError=errorData;
         }
     }
 

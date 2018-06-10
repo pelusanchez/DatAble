@@ -53,7 +53,6 @@ class WindowController {
         elmC.setAttribute("class","close_button");
         elmC.append(document.createTextNode("×"));    // Close button
         elmC.onclick=(function(){
-            console.log("click");
             this.close();
         }).bind(this);
         elm.append(elmC);

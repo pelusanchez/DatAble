@@ -1,0 +1,17 @@
+                <div class="data_enter" class="draggable">
+                    <span class="data_enter_title">Tabla 1</span><br>
+                    <div class="data_table">
+                        <div class="data_table_col">
+                            <input class="data_table_title" value="X">
+                            <input class="data_table_input" type="text">
+                            <input class="data_table_input" type="text">
+                            <input class="data_table_input" type="text">
+                        </div>
+                        <div class="data_table_col">
+                            <input class="data_table_title" value="Y">
+                            <input class="data_table_input" type="text">
+                            <input class="data_table_input" type="text">
+                            <input class="data_table_input" type="text">
+                        </div>
+                </div>
+                </div>

@@ -41,9 +41,9 @@ var WindowController = (function () {
         elmC = document.createElement("span");
         elmC.setAttribute("class", "close_button");
         elmC.append(document.createTextNode("×")); // Close button
-        elmC.onclick=function () {
-            console.log("click");
-        };
+        elmC.onclick = (function () {
+            this.close();
+        }).bind(this);
         elm.append(elmC);
         elm.append(document.createElement("br"));
         elmC = document.createElement("div");

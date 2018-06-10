@@ -7,201 +7,9 @@
             <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
             <meta http-equiv="pragma" content="no-cache" />
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/main.css?l=1" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
-        <style>
-            body {
-                width:100%;
-                /*overflow: hidden;*/
-                border:0;
-                padding:0;
-                font-family: Arial;
-            }
-
-            #menu {
-                position:absolute;
-                top:0px;
-                left:0px;
-                right:0px;
-                height:30px;
-                background:rgba(200,200,250,0.8);
-            }
-
-            #menu_ul {
-                list-style: none;
-                padding:0px;
-                margin:5px;
-                font-size:20px;
-            }
-
-            #menu_ul li {
-                float:left;
-                padding-left:20px;
-            }
-
-            #marco {
-                position:absolute;
-                top:31px;
-                left:0px;
-                right:0px;
-                bottom:0px;
-                /*background:;*/
-                
-            }
-
-            
-
-            #data_graphics {
-                padding:20px 20px 20px 20px;
-                margin: 10px 10px 10px 10px;
-                background:rgba(200,200,200,0.9);
-                display:inline-block;
-                vertical-align: top;
-            }
-
-            .clase {
-                position:absolute;
-                background:#FFF;
-            }
-
-            canvas {
-                background:#FFFFFF;
-            }
-
-            table input[type="text"] {
-                
-                padding:0;
-                margin:0;
-            }
-            
-            table {
-                border-color:#000;
-            }
-
-            input { border:0px; }
-
-            #data {
-                height:100%;
-            }
-
-            .table_title input {
-                
-                color:#000;
-            }
-
-            .data_canvas, .data_table {
-                display: inline-flex;
-                align-content: flex-start;
-                justify-content: center;
-                flex-direction: row;
-                flex-wrap: nowrap;
-                overflow:auto;
-                
-            }
-
-            .data_table {
-                border:1px solid #000;
-            }
-
-            .data_table_col {
-                
-                display: flex;
-                flex-direction: column;
-                width:200px;
-                border-left:1px solid #000;
-            }
-
-            .data_table_title {
-                height:20px;
-                background:#55555C;
-                color:#FFF;
-                text-align: center;
-            }
-            .data_table_input {
-                height:20px;
-                border-bottom:1px solid #000;
-            }
-            
-            .container-custom {
-                width:100%;
-                margin:0;
-                height:100%;
-            }
-            
-            .data_window {
-                
-                background:rgba(200,200,200,0.9);
-                display:inline-block;
-                vertical-align: top;
-                
-                cursor:pointer;
-                
-            }
-
-            .close_button {
-                float:right;
-                color:#EE1111;
-                width:20px;
-                font-size:20px;
-                font-weight: 800;
-            }
-
-            @media (min-width: 576px) {
-                .navbar-custom {
-                   padding-left:50px;
-                }
-                .data_window {
-                    padding:5px 10px 10px 10px;
-                    margin: 10px 10px 10px 10px;
-                    border-radius: 5px 5px 5px 5px;
-                }
-            }
-
-            select {
-                background: #8a949c;
-                min-height:20px;
-                min-width:200px;
-                color:#FFF;
-                font-size:16px;
-                padding:5px 5px 5px 5px;
-                border-radius:5px 5px 5px 5px;
-                cursor:pointer;
-            }
-
-            /**
-            * Bootstrap edits
-            */
-            .alert-fixed {
-                position:fixed;
-                display:none;
-                z-index:99;
-                width:100%;
-            }
-
-            .alert-open {
-                animation: alert_appear 1s ease-in;
-                display:block;
-            }
-
-            .alert-close {
-                animation: alert_appear 1s ease-in reverse;
-                display:block;
-            }
-
-
-            @keyframes alert_appear {
-                0% {
-                    opacity:0;
-                }
-                50% {
-                    opacity: 0.5;
-                }
-                100% {
-                    opacity: 1;
-                }
-            }
-        </style>
 
 
     </head>
@@ -218,23 +26,54 @@
                     <div class="modal-body">
                         <div class="container-fluid">
                             <div class="row">
+                                    <div class="col-md-4">Tabla:</div>
+                                    <div class="col-md-8">
+                                        <select name="table_select_datafit" id="table_select_datafit">
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                            <div class="row">
+                                <div class="col-md-4">X:</div>
+                                <div class="col-md-8">
+                                    <select name="x_axis_datafit" id="x_axis_select_datafit">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-md-4">Y:</div>
+                                    <div class="col-md-8">
+                                        <select name="y_axis_datafit" id="y_axis_select_datafit">
+                                        </select>
+                                    </div>
+                            </div>
+
+                            <div class="row">
                                 <div class="col-md-4">Expresión:</div>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" placeholder="a*x+b">
+                                    <input type="text" class="form-control" id="data_fit_function" placeholder="a*x+b">
                                 </div>
                             </div>
                             <div class="row">
                                     <div class="col-md-4">Valores iniciales:</div>
                                     <div class="col-md-8">
-                                        <input type="text" class="form-control" placeholder="a=1, b=2">
+                                        <input type="text" class="form-control" id="data_fit_hints" placeholder="a=1, b=2">
                                         <small class="form-text text-muted">(Variable)=(valor inicial). Separados por comas.</small>
                                     </div>
-                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-*-4">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="modal-datafit-create-graphic" value="option1">
+                                                <label class="form-check-label" for="modal-datafit-create-graphic">Crear gráfica</label>
+                                            </div>
+                                    </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" data-dismiss="modal" type="button">Cancelar</button>
-                        <button class="btn btn-primary" type="button">Ajustar</button>
+                        <button class="btn btn-primary" type="button" id="btn-fit">Ajustar</button>
                     </div>
                 </div>
                 
@@ -245,7 +84,7 @@
                 <div class="modal-content">
                 
                     <div class="modal-header">
-                        <h5 clas="modal-title">Representar datos</h5>
+                        <h5 class="modal-title">Representar datos</h5>
                     </div>
                     <div class="modal-body">
                         <div class="container-fluid">
@@ -270,7 +109,7 @@
                                         <select name="y_axis" id="y_axis_select">
                                         </select>
                                     </div>
-                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -281,6 +120,26 @@
                 
             </div>
         </div>
+
+        <div class="modal fade" id="dataInfo">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="dataInfo_title"></h5>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid" id="dataInfo_container">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" data-dismiss="modal" type="button">Aceptar</button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
 
         
         
@@ -325,7 +184,7 @@
         <script src="jquery/jquery-ui/jquery-ui.min.js"></script>
         
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/GradientFit.js"></script>
+        <script type="text/javascript" src="js/GradientFit.js?k=1"></script>
         <script type="text/javascript">
 
         TableController.topElement=0;
@@ -580,8 +439,8 @@
             new TableController();
         }
         </script>
-        <script languaje="javascript" src="js/window.js?k=5"></script>
-        <script languaje="javascript" src="js/grafika.js?k=5"></script>
+        <script languaje="javascript" src="js/window.js?k=7"></script>
+        <script languaje="javascript" src="js/grafika.js?k=6"></script>
         <script languaje="JavaScript">
         /*
          *  Table-Graphics Interface
@@ -611,10 +470,49 @@
             
             let grafikaWindow = new WindowController({title : "Gráfica "+(++plotPoints.numOfPlots)}, document.getElementById("graphics"));
             let grafikaA = new Grafika(validData, {element: grafikaWindow.getCanvas()});
-            grafikaA.onError(function(){grafikaWindow.close()});
+            grafikaA.onError(function(errorInfo){
+                alerta("Grafica: "+errorInfo.text);
+                grafikaWindow.close()
+            });
+            
             
         }
 
+        let gradientFit;
+        /*
+         *  Table-GradientFit-Graphics Interface
+         * 
+         */
+
+         function fitPoints(data){
+            let tableInstance = TableController.getTableInstance(data.tableId);
+            let columnsNames = tableInstance.getColumnsNames();
+            let tableData = tableInstance.getData();
+            let useData = [tableData[data.columnX],tableData[data.columnY]];
+            // Parse data
+            let n = useData[0].length;
+            let j = 0;
+            let validData = {x:[], y: []};
+            while(n--){
+                if(void 0 === useData[0][n] || undefined ===useData[0][n]){continue;}
+                if(void 0 === useData[1][n] || undefined ===useData[1][n]){continue;}
+                validData.x[j] = useData[0][n];
+                validData.y[j] = useData[1][n];
+                j++;
+            }
+            console.log(data.hints);
+            
+            gradientFit = new GradientFit(validData, data.function, data.hints);
+            let result = gradientFit.iterate();
+            
+            
+
+            informacionModal({
+                title : 'Ajuste de datos',
+                content: '<div class="col-md-4">Función:</div><div class="col-md-8">'+gradientFit.getTextFunction()+'</div>'
+            });
+            
+        }
 
         </script>
         <script languaje="JavaScript">
@@ -625,7 +523,6 @@
              */
             $(document).ready(
                 function(){
-                    $("#btn-graphic-create").click(function(){console.log("CLICK");});
                     TableController.topElement=document.getElementById("data");
                     a = new TableController({
                         columns : 3,
@@ -661,16 +558,60 @@
                         }
                     });
 
+                    $("#dataFit").on("shown.bs.modal", function(){
+                        
+                        $("#table_select_datafit").html("");
+                        let i = TableController.getTablesNumber();
+                        let j = 0;
+                        while(j<i){
+                            $("#table_select_datafit").append("<option value=\""+j+"\">Tabla "+j+"</option>");
+                            j++;
+                        }
+
+                        $("#table_select_datafit").trigger("change");
+                    });
+                    $("#table_select_datafit").on('change', function(){
+                        let tableId=document.getElementById("table_select_datafit").value;
+                        console.log(tableId);
+                        let tableInstance = TableController.getTableInstance(tableId);
+                        let names = tableInstance.getColumnsNames();
+                        let j = 0;
+                        let i = names.length;
+                        $("#x_axis_select_datafit").html("");
+                        $("#y_axis_select_datafit").html("");
+                        while(j<i){
+                            $("#x_axis_select_datafit").append("<option value=\""+j+"\">"+names[j]+"</option>");
+                            $("#y_axis_select_datafit").append("<option value=\""+j+"\">"+names[j]+"</option>");
+                            j++;
+
+                        }
+                    });
+
                     $("#btn-graphic-create").on("click", function(){
                         plotPoints({
                             tableId:document.getElementById("table_select").value,
                             columnX:document.getElementById("x_axis_select").value,
                             columnY:document.getElementById("y_axis_select").value
                         });
+                        $("#dataGraph").modal('close');
                     });
+
+                    $("#btn-fit").on("click",function(){
+                        let plotGraph = $("#modal-datafit-create-graphic").is(":checked");
+                        let data = {
+                            tableId:document.getElementById("table_select_datafit").value,
+                            columnX:document.getElementById("x_axis_select_datafit").value,
+                            columnY:document.getElementById("y_axis_select_datafit").value,
+                            function: document.getElementById("data_fit_function").value,
+                            hints: document.getElementById("data_fit_hints").value
+                        };
+                        fitPoints(data);
+                        $("#dataFit").modal("hide");
+                    });
+
                 }
             )
-            // TODO
+
             function alerta(msg){
                 document.getElementById("alerta-div").innerText = msg;
                 document.getElementById("alerta-div").classList.add("alert-open");
@@ -680,6 +621,22 @@
                     document.getElementById("alerta-div").classList.remove("alert-open");
                 },5000);
 
+            }
+
+            function informacionModal(info){
+                if(void 0 === info || void 0 === info.content){
+                    return;
+                }
+                let title, content;
+                if(void 0 === info.title){
+                    title = "Información"
+                }else{
+                    title = info.title;
+                }
+                $("#dataInfo_title").text(title);
+                $("#dataInfo_container").html(info.content);
+                $("#dataInfo").modal("show");
+                
             }
         </script>
     </body>

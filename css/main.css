@@ -1,0 +1,208 @@
+/**
+ *  Written by David Iglesias <davidiglesanchez@gmail.com>.
+ *  Use 'sass main.scss main.css' to compile.
+ */
+body {
+  width: 100%;
+  /*overflow: hidden;*/
+  border: 0;
+  padding: 0;
+  font-family: "Arial";
+}
+
+#menu {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 30px;
+  background: rgba(200, 200, 250, 0.8);
+}
+
+#menu_ul {
+  list-style: none;
+  padding: 0px;
+  margin: 5px;
+  font-size: 20px;
+}
+
+#menu_ul li {
+  float: left;
+  padding-left: 20px;
+}
+
+#marco {
+  position: absolute;
+  top: 31px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  /*background:;*/
+}
+
+#data_graphics {
+  padding: 20px 20px 20px 20px;
+  margin: 10px 10px 10px 10px;
+  background: rgba(200, 200, 200, 0.9);
+  display: inline-block;
+  vertical-align: top;
+}
+
+.clase {
+  position: absolute;
+  background: #FFF;
+}
+
+canvas {
+  background: #FFFFFF;
+}
+
+table input[type=text] {
+  padding: 0;
+  margin: 0;
+}
+
+table {
+  border-color: #000;
+}
+
+input {
+  border: 0px;
+}
+
+#data {
+  height: 100%;
+}
+
+.table_title input {
+  color: #000;
+}
+
+.data_canvas, .data_table {
+  display: inline-flex;
+  align-content: flex-start;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: auto;
+  max-width: 400px;
+  max-height: 400px;
+}
+
+.data_table {
+  border: 1px solid #000;
+}
+
+.data_table_col {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  border-left: 1px solid #000;
+}
+
+.data_table_title {
+  height: 20px;
+  background: #55555C;
+  color: #FFF;
+  text-align: center;
+}
+
+.data_table_input {
+  height: 20px;
+  border-bottom: 1px solid #000;
+}
+
+.container-custom {
+  width: 100%;
+  margin: 0;
+  height: 100%;
+}
+
+.data_window {
+  background: rgba(200, 200, 200, 0.9);
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.close_button {
+  float: right;
+  color: #EE1111;
+  width: 20px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+@media (min-width: 576px) {
+  .navbar-custom {
+    padding-left: 50px;
+  }
+
+  .data_window {
+    padding: 5px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
+    border-radius: 5px 5px 5px 5px;
+  }
+}
+select {
+  background: #8a949c;
+  min-height: 20px;
+  min-width: 200px;
+  color: #FFF;
+  font-size: 16px;
+  padding: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/**
+* Bootstrap edits
+*/
+.alert-fixed {
+  position: fixed;
+  display: none;
+  z-index: 99;
+  width: 100%;
+}
+
+.alert-open {
+  -webkit-animation: "alert_appear 1s ease-in";
+  -moz-animation: "alert_appear 1s ease-in";
+  -ms-animation: "alert_appear 1s ease-in";
+  animation: "alert_appear 1s ease-in";
+  display: block;
+}
+
+.alert-close {
+  -webkit-animation: "alert_disappear 1s ease-in";
+  -moz-animation: "alert_disappear 1s ease-in";
+  -ms-animation: "alert_disappear 1s ease-in";
+  animation: "alert_disappear 1s ease-in";
+}
+
+@keyframes alert_appear {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes alert_disappear {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/*# sourceMappingURL=css/main.css.map */
